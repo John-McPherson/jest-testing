@@ -17,7 +17,10 @@ describe("score key exists", () => {
     test("score key exists", () => {
         expect("score" in game).toBe(true);
     })
-    test("CurrentGame key exists", () => {
-        expect("CurrentGame" in game).toBe(true);
+    test("currentGame key exists", () => {
+        expect("currentGame" in game).toBe(true);
+    })
+    test("playerMoves key exists", () => {
+        expect("playerMoves" in game).toBe(true);
     })
 })

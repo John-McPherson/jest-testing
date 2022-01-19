@@ -1,6 +1,7 @@
 let game = {
     score: 0,
-    CurrentGame: [],
+    currentGame: [],
+    playerMoves: [],
 }
 module.exports = {
     game
