@@ -18,7 +18,7 @@ function newGame() {
                 let move = e.target.getAttribute('id');
                 lightsOn(move);
                 game.playerMoves.push(move);
-                // playerTurn();
+                playerTurn();
             })
             circle.setAttribute("data-listener", "true");
         };
@@ -58,13 +58,24 @@ function showTurns() {
 
     }, 800);
 
-
 }
+
+function playerTurn() {
+    if (game.playerMoves[game.playerMoves.length - 1] === game.currentGame[game.playerMoves.length - 1]) {
+        if (game.currentGame.length == game.playerMoves.length) {
+            game.score++;
+            showScore();
+            addTurn();
+        }
+    }
+}
+
 module.exports = {
     game,
     newGame,
     showScore,
     addTurn,
     lightsOn,
-    showTurns
+    showTurns,
+    playerTurn
 };

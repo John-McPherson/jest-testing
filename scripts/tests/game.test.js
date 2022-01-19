@@ -2,13 +2,16 @@
  * @jest-environment jsdom
  */
 
+jest.spyOn(window, "alert").mockImplementation()( => {});
+
 const {
     game,
     newGame,
     showScore,
     addTurn,
     lightsOn,
-    showTurns
+    showTurns,
+    playerTurn
 } = require("../game");
 beforeAll(() => {
     let fs = require("fs");
@@ -103,6 +106,15 @@ describe("Gameplay works correctly", () => {
         for (let circle of circles) {
             expect(circle.getAttribute("data-listener")).toBe("true");
         }
-
+    });
+    test("game should increment the score if the guess is correct", () => {
+        game.playerMoves.push(game.currentGame[0]);
+        playerTurn();
+        expect(game.score).toBe(1);
+    });
+    test("test should call an alert if the move is wrong", () => {
+        game.playerMoves.push("wrong");
+        playerTurn();
+        expect(window.alert).toBeCalledWith("Wrong move!");
     });
 });
