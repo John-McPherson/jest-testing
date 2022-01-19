@@ -3,7 +3,8 @@
  */
 
 const {
-    game
+    game,
+    newGame
 } = require("../game");
 beforeAll(() => {
     let fs = require("fs");
