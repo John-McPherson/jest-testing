@@ -98,4 +98,11 @@ describe("Gameplay works correctly", () => {
         showTurns();
         expect(game.turnNumber).toBe(0);
     });
+    test("Expect data-listener to be true", () => {
+        let circles = document.getElementsByClassName("circle");
+        for (let circle of circles) {
+            expect(circle.getAttribute("data-listener")).toBe("true");
+        }
+
+    });
 });
