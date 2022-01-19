@@ -51,6 +51,9 @@ describe("newGame works correctly", () => {
     test("should be one move in the currentGame array", () => {
         expect(game.currentGame.length).toEqual(1);
     });
+    test("should be one move in the currentGame array", () => {
+        expect(game.choices).toContain(game.currentGame[0]);
+    });
     test("should display zero for the element with the id of 'score'", () => {
         expect(document.getElementById('score').innerText).toEqual(0);
     });
