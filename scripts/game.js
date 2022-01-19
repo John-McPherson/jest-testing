@@ -7,7 +7,10 @@ let game = {
 
 function newGame() {
     game.score = 0;
-    game.playerMoves = [];
+    [game.playerMoves, game.currentGame] = [
+        [],
+        []
+    ];
 }
 module.exports = {
     game,
