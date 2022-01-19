@@ -4,7 +4,8 @@
 
 const {
     game,
-    newGame
+    newGame,
+    showScore
 } = require("../game");
 beforeAll(() => {
     let fs = require("fs");
@@ -37,6 +38,7 @@ describe("newGame works correctly", () => {
         game.score = 42;
         game.playerMoves = ["button1", "button2", "button3", "button4"];
         game.currentGame = ["button1", "button2", "button3", "button4"];
+        document.getElementById('score').innerText = '42';
         newGame();
     });
     test("should set game score to zero", () => {
@@ -47,5 +49,8 @@ describe("newGame works correctly", () => {
     });
     test("should clear currentGame array", () => {
         expect(game.currentGame.length).toEqual(0);
+    });
+    test("should display zero for the element with the id of 'score'", () => {
+        expect(document.getElementById('score').innerText).toEqual(0);
     });
 })
