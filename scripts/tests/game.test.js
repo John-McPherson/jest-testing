@@ -51,10 +51,36 @@ describe("newGame works correctly", () => {
     test("should be one move in the currentGame array", () => {
         expect(game.currentGame.length).toEqual(1);
     });
-    test("should be one move in the currentGame array", () => {
+    test("currentGame array content should be match an index from choices ", () => {
         expect(game.choices).toContain(game.currentGame[0]);
     });
     test("should display zero for the element with the id of 'score'", () => {
         expect(document.getElementById('score').innerText).toEqual(0);
     });
 })
+
+describe("Gameplay works correctly", () => {
+    beforeEach(() => {
+        game.score = 0;
+        game.playerMoves = [];
+        game.currentGame = [];
+        addTurn();
+    });
+    afterEach(() => {
+        game.score = 0;
+        game.playerMoves = [];
+        game.currentGame = [];
+    });
+    test("addTurn adds a new turn to the game", () => {
+        addTurn();
+        expect(game.currentGame.length).toBe(2);
+    });
+    test("currentGame array[0] content should be match an index from choices ", () => {
+        addTurn();
+        expect(game.choices).toContain(game.currentGame[0]);
+    });
+    test("currentGame[1] array content should be match an index from choices ", () => {
+        addTurn();
+        expect(game.choices).toContain(game.currentGame[1]);
+    });
+});
