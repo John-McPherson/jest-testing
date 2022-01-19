@@ -12,13 +12,22 @@ function newGame() {
         []
     ];
     showScore()
+    addTurn()
 }
 
 function showScore() {
     document.getElementById('score').innerText = game.score;
 }
+
+function addTurn() {
+    game.playerMoves = [];
+    let x = Math.floor(Math.random() * 4);
+    game.currentGame.push(game.choices[x]);
+
+}
 module.exports = {
     game,
     newGame,
-    showScore
+    showScore,
+    addTurn
 };

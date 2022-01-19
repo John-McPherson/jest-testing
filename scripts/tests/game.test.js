@@ -5,7 +5,8 @@
 const {
     game,
     newGame,
-    showScore
+    showScore,
+    addTurn
 } = require("../game");
 beforeAll(() => {
     let fs = require("fs");
@@ -47,8 +48,8 @@ describe("newGame works correctly", () => {
     test("should clear playerMoves array", () => {
         expect(game.playerMoves.length).toEqual(0);
     });
-    test("should clear currentGame array", () => {
-        expect(game.currentGame.length).toEqual(0);
+    test("should be one move in the currentGame array", () => {
+        expect(game.currentGame.length).toEqual(1);
     });
     test("should display zero for the element with the id of 'score'", () => {
         expect(document.getElementById('score').innerText).toEqual(0);
