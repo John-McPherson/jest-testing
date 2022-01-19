@@ -121,4 +121,8 @@ describe("Gameplay works correctly", () => {
         playerTurn();
         expect(window.alert).toBeCalledWith("Wrong move!");
     });
+    test("ShowTurns should toggle turnInProgress to true", () => {
+        showTurns();
+        expect(game.turnInProgress).toBe(true);
+    });
 });
