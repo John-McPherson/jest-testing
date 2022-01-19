@@ -6,7 +6,8 @@ const {
     game,
     newGame,
     showScore,
-    addTurn
+    addTurn,
+    lightsOn
 } = require("../game");
 beforeAll(() => {
     let fs = require("fs");
@@ -82,5 +83,10 @@ describe("Gameplay works correctly", () => {
     test("currentGame[1] array content should be match an index from choices ", () => {
         addTurn();
         expect(game.choices).toContain(game.currentGame[1]);
+    });
+    test("should add correct class to light up the buttons", () => {
+        let button = document.getElementById(game.currentGame[0]);
+        lightsOn(game.currentGame[0]);
+        expect(button.classList).toContain("light");
     });
 });

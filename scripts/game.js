@@ -25,9 +25,18 @@ function addTurn() {
     game.currentGame.push(game.choices[x]);
 
 }
+
+function lightsOn(circ) {
+    document.getElementById(circ).classList.add('light');
+    setTimeout(() => {
+        document.getElementById(circ).classList.remove('light');
+    }, 400);
+
+}
 module.exports = {
     game,
     newGame,
     showScore,
-    addTurn
+    addTurn,
+    lightsOn
 };
